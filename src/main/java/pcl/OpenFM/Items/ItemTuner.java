@@ -28,7 +28,7 @@ public class ItemTuner extends Item {
 
     public ItemTuner() {
         setMaxStackSize(1);
-        setUnlocalizedName("tuner");
+        setTranslationKey("tuner");
     }
 
     @Override

@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 public class ItemMemoryCard extends Item {
     public ItemMemoryCard() {
         setMaxStackSize(1);
-        setUnlocalizedName("memorycard");
+        setTranslationKey("memorycard");
         //setTextureName("openfm:ItemMemoryCard");
     }
 }

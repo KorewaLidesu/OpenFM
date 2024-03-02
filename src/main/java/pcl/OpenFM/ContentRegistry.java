@@ -44,12 +44,12 @@ public class ContentRegistry {
 
 	public static Item init(Item item, String name)
 	{
-		return item.setUnlocalizedName(name).setRegistryName("openfm:" + name);
+		return item.setTranslationKey(name).setRegistryName("openfm:" + name);
 	}
     
 	public static Block init(Block block, String name)
 	{
-		return block.setUnlocalizedName(name).setRegistryName("openfm:" + name);
+		return block.setTranslationKey(name).setRegistryName("openfm:" + name);
 	}
 	
     public static void preInit() {
@@ -95,12 +95,12 @@ public class ContentRegistry {
 
 		creativeTab = new CreativeTabs("tabOpenFM") {
 			@SideOnly(Side.CLIENT)
-			public ItemStack getTabIconItem() {
+			public ItemStack createIcon() {
 				return new ItemStack(Item.getItemFromBlock(blockRadio));
 			}
 
 			@SideOnly(Side.CLIENT)
-			public String getTranslatedTabLabel() {
+			public String getTabLabel() {
 				return I18n.translateToLocal("itemgroup.tabopenfm");
 			}
 		};

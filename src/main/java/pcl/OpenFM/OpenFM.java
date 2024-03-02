@@ -31,17 +31,17 @@ import pcl.OpenFM.GUI.OFMGuiHandler;
 import pcl.OpenFM.Handler.ClientEvent;
 import pcl.OpenFM.Handler.ServerEvent;
 import pcl.OpenFM.network.PacketHandler;
+import pcl.OpenFM.openfm.Tags;
 import pcl.OpenFM.player.PlayerDispatcher;
 
-@Mod(modid=BuildInfo.modID, name=BuildInfo.modName, version=BuildInfo.versionNumber + "." + BuildInfo.buildNumber, dependencies = "", guiFactory = "pcl.OpenFM.GUI.OFMGuiFactory", acceptedMinecraftVersions = "1.12.2")
+@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION, guiFactory = "pcl.OpenFM.GUI.OFMGuiFactory", acceptedMinecraftVersions = "1.12.2")
 public class OpenFM {
-	public static final String MODID = "openfm";
-	@Mod.Instance(BuildInfo.modID)
+	@Mod.Instance(Tags.MOD_ID)
 	public static OpenFM instance;
 	@SidedProxy(clientSide="pcl.OpenFM.ClientProxy", serverSide="pcl.OpenFM.CommonProxy")
 	public static CommonProxy proxy;
 	public static List<PlayerDispatcher> playerList = new ArrayList<PlayerDispatcher>();
-	public static final Logger logger = LogManager.getFormatterLogger(BuildInfo.modID);
+	public static final Logger logger = LogManager.getFormatterLogger(Tags.MOD_ID);
 	public static File configFile;
 	private static ContentRegistry contentRegistry = new ContentRegistry();
 	
@@ -76,7 +76,7 @@ public class OpenFM {
 
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-		if(eventArgs.getModID().equals(BuildInfo.modID)){
+		if(eventArgs.getModID().equals(Tags.MOD_ID)){
 			OFMConfiguration.sync();
 		}
 	}

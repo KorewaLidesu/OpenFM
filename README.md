@@ -1,26 +1,16 @@
-# OpenFM
+## TemplateDevEnv
 
-Streaming radio for Minecraft, with OpenComputers, and ComputerCraft support.
+Template workspace for modding Minecraft 1.12.2. Licensed under MIT, it is made for public use.
 
-fm = component.openfm_radio
+This template currently utilizies **Gradle 8.3** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.3.26** + **Forge 14.23.5.2860**.
 
-fm.setURL("http://listen.radionomy.com/DeepHouse")
+With **coremod and mixin support** that is easy to configure.
 
-fm.start()
+### Instructions:
 
-fm.stop()
-
-fm.volUp()
-
-fm.volDown()
-
-fm.getVol()
-
-fm.setScreenColor(0xFF0000) Sets the text color to red on the display
-
-fm.setScreenText("Text to display on radio")  Text will scroll if larger than the display.
-
-
-Highly modified version of Dragon's Radio Mod, Dragon's Radio Mod is Licenses MIT.
-
-Downloads via Curse http://www.curse.com/mc-mods/Minecraft/236839-openfm
+1. Click `use this template` at the top.
+2. Clone the repository you have created with this template.
+3. In the local repository, run the command `gradlew setupDecompWorkspace`
+4. Open the project folder in IDEA.
+5. Right-click in IDEA `build.gradle` of your project, and select `Link Gradle Project`, after completion, hit `Refresh All` in the gradle tab on the right.
+6. Run `gradlew runClient` and `gradlew runServer`, or use the auto-imported run configurations in IntelliJ like `1. Run Client`.

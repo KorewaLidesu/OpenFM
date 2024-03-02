@@ -13,20 +13,17 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import pcl.OpenFM.BuildInfo;
 import net.minecraftforge.fml.relauncher.IFMLCallHook;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
-public class OFMDepLoader implements IFMLLoadingPlugin, IFMLCallHook {
-	public void load() throws IOException, URISyntaxException {
+public class OFMDepLoader implements IFMLLoadingPlugin {
+	public void load(Object fileObject) throws IOException, URISyntaxException {
 		System.out.println("Starting OpenFM DepLoader!");
-		File f = new File("mods"+File.separator);
+		File f = new File("mods" + File.separator);
 		f.mkdirs();
 		final String path = "assets/openfm/deps";
-		final File jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-		if(jarFile.isFile()) {  // Run with JAR file
-			JarFile jar = null;
-			jar = new JarFile(jarFile);
+		if(fileObject instanceof File coremodFile && coremodFile.isFile()) {  // Run with JAR file
+			JarFile jar = new JarFile(coremodFile);
 			final Enumeration<JarEntry> entries = jar.entries(); //gives ALL entries in jar
 			while(entries.hasMoreElements()) {
 				final String name = entries.nextElement().getName();
@@ -67,18 +64,12 @@ public class OFMDepLoader implements IFMLLoadingPlugin, IFMLCallHook {
 
 	@Override
 	public void injectData(Map<String, Object> data) {
-	}
-
-	@Override
-	public Void call() {
 		try {
-			load();
+			load(data.get("coremodLocation"));
 		} catch (IOException | URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return null;
 	}
 
 	@Override

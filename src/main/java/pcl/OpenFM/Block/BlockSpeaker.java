@@ -23,7 +23,7 @@ public class BlockSpeaker extends Block implements ITileEntityProvider {
 		super(Material.WOOD);
 		setHardness(2.0F);
 		setResistance(10.0F);
-		setUnlocalizedName("speaker");
+		setTranslationKey("speaker");
 		//setStepSound(Block.soundTypeWood);
 	}
 
@@ -32,7 +32,7 @@ public class BlockSpeaker extends Block implements ITileEntityProvider {
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		EnumFacing facing = EnumFacing.getHorizontal(meta);
+		EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
 		return this.getDefaultState().withProperty(PROPERTYFACING, facing);
 	}
 

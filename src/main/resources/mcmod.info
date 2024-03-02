@@ -1,20 +1,12 @@
-{
-  "modListVersion": 2,
-  "modList": [{
-    "modid": "openfm",
-    "name": "OpenFM",
-    "description": "Streaming radio in Minecraft! With optional OpenComputers support.",
-    "version": "${version}",
-    "mcversion": "${mcversion}",
-    "url": "http://minecraft.curseforge.com/projects/openfm",
-    "updateUrl": "",
-    "authorList": [ "MichiyoRavencroft"],
-    "credits": "Authored by MichiyoRavencroft, based on an original idea by DragonbornSR",
-    "logoFile": "/OpenFM.logo.png",
-    "screenshots": [ ],
-    "parent": "",
-    "requiredMods": [ "forge" ],
-    "dependencies": [ "opencomputers" ],
-    "useDependencyInformation": true
-  }]
-}
+[{
+	"modid": "${mod_id}",
+	"name": "${mod_name}",
+	"version": "${mod_version}",
+	"mcversion": "1.12.2",
+	"description": "${mod_description}",
+	"authorList": ${mod_authors},
+	"credits": "${mod_credits}",
+	"url": "${mod_url}",
+	"updateJSON": "${mod_update_json}",
+	"logoFile": "${mod_logo_path}"
+}]

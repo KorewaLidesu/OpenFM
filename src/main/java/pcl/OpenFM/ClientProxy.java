@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import pcl.OpenFM.openfm.Tags;
 
 public class ClientProxy extends CommonProxy {
 
@@ -30,13 +31,13 @@ public class ClientProxy extends CommonProxy {
 	
 	public static void registerBlockItem(final Block block, int meta, final String blockName)
     {
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), meta, new ModelResourceLocation(OpenFM.MODID + ":" + blockName, "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), meta, new ModelResourceLocation(Tags.MOD_ID + ":" + blockName, "inventory"));
 		OpenFM.logger.info("Registering " + blockName + " Item Renderer");
     }
 	
 	public static void registerItem(final Item item, final String itemName)
     {
-		ModelLoader.setCustomModelResourceLocation(item,  0, new ModelResourceLocation(OpenFM.MODID + ":" + itemName, "inventory"));
+		ModelLoader.setCustomModelResourceLocation(item,  0, new ModelResourceLocation(Tags.MOD_ID + ":" + itemName, "inventory"));
 		OpenFM.logger.info("Registering " + itemName + " Item Renderer");
     }
 	

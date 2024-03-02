@@ -221,7 +221,7 @@ public class TileEntityRadio extends TileEntity implements IPeripheral, SimpleCo
 				for (Speaker s : speakers) {
 					IBlockState sb = getWorld().getBlockState(new BlockPos(s.x, s.y, s.z));
 					if (!(sb.getBlock() instanceof BlockSpeaker)) {
-						if (!getWorld().getChunkFromBlockCoords(new BlockPos(s.x, s.y, s.z)).isLoaded()) {
+						if (!getWorld().getChunk(new BlockPos(s.x, s.y, s.z)).isLoaded()) {
 							break;
 						}
 						speakers.remove(s);
@@ -265,7 +265,7 @@ public class TileEntityRadio extends TileEntity implements IPeripheral, SimpleCo
 				if (th >= 60) {
 					for (Speaker s : speakers) {
 						if (!(world.getBlockState(new BlockPos(s.x, s.y, s.z)).getBlock() instanceof BlockSpeaker)) {
-							if (!world.getChunkFromBlockCoords(new BlockPos(s.x, s.y, s.z)).isLoaded()) {
+							if (!world.getChunk(new BlockPos(s.x, s.y, s.z)).isLoaded()) {
 								break;
 							}
 							speakers.remove(s);

@@ -45,7 +45,7 @@ public class BlockRadio extends Block implements IPeripheralProvider {
 		super(Material.WOOD);
 		setHardness(2.0F);
 		setResistance(10.0F);
-		setUnlocalizedName("radio");
+		setTranslationKey("radio");
 		//setStepSound(Block.soundTypeWood);
 		random = new Random();
 	}
@@ -85,7 +85,7 @@ public class BlockRadio extends Block implements IPeripheralProvider {
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		EnumFacing facing = EnumFacing.getHorizontal(meta);
+		EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
 		return this.getDefaultState().withProperty(PROPERTYFACING, facing);
 	}
 

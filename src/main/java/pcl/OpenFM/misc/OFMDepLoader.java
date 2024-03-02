@@ -59,7 +59,7 @@ public class OFMDepLoader implements IFMLLoadingPlugin {
 
 	@Override
 	public String getSetupClass() {
-		return getClass().getName();
+		return null;
 	}
 
 	@Override
